@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Hello, World!</title>
+	<link rel="stylesheet" href="/layout.css" />
+</head>
+
+<body class="page">
+	<div class="container-wrapper">
+		<div class="container" id="layoutContainer">
+			<div class="content">
+				<h1 id="heading" class="main-heading"></h1>
+
+				<figure class="mktoho-figure">
+					<img src="/mktoho.png" alt="私が本物のえむけーです" width="300" height="300" class="mktoho-image" />
+					<figcaption class="mktoho-caption">私が本物のえむけーです</figcaption>
+				</figure>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function updateLayout() {
+			const container = document.getElementById('layoutContainer');
+			const content = container.querySelector('.content');
+			container.classList.toggle('tall', content.offsetHeight + 64 > window.innerHeight);
+		}
+
+		window.addEventListener('load', updateLayout);
+		window.addEventListener('resize', updateLayout);
+
+		fetch('/message')
+			.then((resp) => resp.text())
+			.then((text) => {
+				const h1 = document.getElementById('heading');
+				h1.textContent = text;
+			});
+	</script>
+</body>
+
+</html>

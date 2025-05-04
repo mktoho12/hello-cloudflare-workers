@@ -1,9 +1,14 @@
-import { Hono } from "hono";
+import { Hono } from 'hono'
+import home from './home.html'
 
-const app = new Hono<{ Bindings: CloudflareBindings }>();
+const app = new Hono<{ Bindings: CloudflareBindings }>()
 
-app.get("/message", (c) => {
-  return c.text("Hello Hono!");
-});
+app.get('/', (c) => {
+  return c.html(home)
+})
 
-export default app;
+app.get('/message', (c) => {
+  return c.text('Hello Hono!')
+})
+
+export default app
