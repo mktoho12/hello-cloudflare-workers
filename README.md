@@ -1,6 +1,6 @@
 ```txt
-npm install
-npm run dev
+bun i
+bun dev
 ```
 
 ```txt
@@ -10,7 +10,7 @@ npm run deploy
 [For generating/synchronizing types based on your Worker configuration run](https://developers.cloudflare.com/workers/wrangler/commands/#types):
 
 ```txt
-npm run cf-typegen
+bun run cf-typegen
 ```
 
 Pass the `CloudflareBindings` as generics when instantiation `Hono`:
@@ -19,3 +19,5 @@ Pass the `CloudflareBindings` as generics when instantiation `Hono`:
 // src/index.ts
 const app = new Hono<{ Bindings: CloudflareBindings }>()
 ```
+
+テストテスト
